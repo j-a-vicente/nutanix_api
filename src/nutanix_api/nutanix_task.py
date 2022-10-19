@@ -27,11 +27,11 @@ class NutanixTask(BaseEntity):
         uuid: str,
         status: str,
         entity_reference_list: List[Dict[str, Any]],
-        start_time: str,
         creation_time: str,
         last_update_time: str,
         percentage_complete: int,
         progress_message: str,
+        start_time: str = None,
         completion_time: str = None,
         **_,
     ) -> None:
@@ -42,7 +42,7 @@ class NutanixTask(BaseEntity):
         self._status: TaskStatus = TaskStatus(status)
         self._progress_message: str = progress_message
         self._entity_reference: List[Dict[str, Any]] = entity_reference_list
-        self._start_time: datetime = parser.parse(start_time)
+        self._start_time: datetime = parser.parse(start_time) if start_time else None
         self._creation_time: datetime = parser.parse(creation_time)
         self._completion_time: datetime = parser.parse(completion_time) if completion_time else None
         self._last_update_time: datetime = parser.parse(last_update_time)
