@@ -43,7 +43,7 @@ class BaseEntity(ABC):
         while response is None or len(entities) < response["metadata"]["total_matches"]:
             response = api_client.POST(f"/{cls.base_route}/list", offset=offset)
             entities += response["entities"]
-            offset = response["metadata"].get("length", 0)
+            offset += response["metadata"].get("length", 0)
 
             if not get_all or offset == 0:
                 break
