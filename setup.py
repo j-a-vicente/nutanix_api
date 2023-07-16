@@ -30,7 +30,12 @@ setuptools.setup(
     license="MIT",
     packages=setuptools.find_packages("src"),
     package_dir={"": "src"},
-    install_requires=requirements,
+    install_requires=[
+        "requests",
+        "urllib3",
+        "waiting",
+        "python-dateutil",
+    ],
     tests_require=requirements + test_requirements,
     include_package_data=True,
     python_requires=">=3.7.0",
