@@ -7,7 +7,7 @@ import requests
 from requests import Session
 from urllib3.exceptions import InsecureRequestWarning
 
-from .exceptions import RequestError
+#from .exceptions import RequestError
 
 
 class NutanixSession:
@@ -42,7 +42,7 @@ class ApiVersion(Enum):
 
 
 class NutanixApiClient:
-    BASE_URL_FORMAT = "https://{address}:{port}"  # noqa FS003
+    BASE_URL_FORMAT = "https://10.0.17.42:9440"  # noqa FS003
     V1_URL_FORMAT = BASE_URL_FORMAT + "/PrismGateway/services/rest/v1/"
     V2_URL_FORMAT = BASE_URL_FORMAT + "/PrismGateway/services/rest/v2.0/"
     V3_URL_FORMAT = BASE_URL_FORMAT + "/api/nutanix/v3/"
